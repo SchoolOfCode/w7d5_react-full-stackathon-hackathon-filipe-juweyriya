@@ -18,7 +18,10 @@ function App() {
       // setPokemonCards(...data, )
       // const newState = [...pokemonCards, data]
       setPokemonCards(() => {
-        const newState = [...pokemonCards, { name: data.name, img: data.img }]
+        const newState = [
+          ...pokemonCards,
+          { name: data.name, img: data.sprites.front_default },
+        ]
         return newState
 
         // console.log('newstate', newState)
