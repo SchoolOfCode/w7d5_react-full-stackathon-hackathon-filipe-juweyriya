@@ -39,7 +39,7 @@ function App() {
           handleClick()
         }}
       >
-        Get them
+        Get them all
       </button>
       <div className='poke-dex'>
         {pokemonCards.map((pokemon) => (
