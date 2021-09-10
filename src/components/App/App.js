@@ -1,14 +1,37 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import PokemonCards from '../PokemonCards/index'
-const count = 500
 
 function App() {
-  const [id, setId] = useState()
-  const [name, setName] = useState()
+  const [id, setId] = useState(1)
+
+  const [pokemonCards, setPokemonCards] = useState([])
+
+  useEffect(() => {
+    const getPokemon = async () => {
+      const url = `https://pokeapi.co/api/v2/pokemon/${id}`
+      const response = await fetch(url)
+      const data = await response.json()
+      console.log('this is data', data.name)
+      console.log('data', data)
+
+      // setPokemonCards(...data, )
+      // const newState = [...pokemonCards, data]
+      setPokemonCards(() => {
+        const newState = [...pokemonCards, { name: data.name, img: data.img }]
+        return newState
+
+        // console.log('newstate', newState)
+      })
+      // console.log('newstate', newState)
+
+      // console.log('pokemon name is', data.name)
+    }
+    getPokemon()
+  }, [id])
 
   function handleClick() {
-    const randomId = Math.ceil(Math.random() * 950)
+    const randomId = Math.ceil(Math.random() * 850)
     setId(randomId)
   }
 
@@ -20,8 +43,20 @@ function App() {
 
   return (
     <div className='App'>
-      <PokemonCards id={id} name={name} />
-      <button onClick={handleClick}>Gotta catch em all</button>
+      <button
+        onClick={() => {
+          handleClick()
+        }}
+      >
+        Get them all
+      </button>
+      <ul>
+        {pokemonCards.map((pokemon) => (
+          <PokemonCards id={pokemon.id} name={pokemon.name} src={pokemon.img} />
+        ))}
+      </ul>
+
+      {/* <button onClick={PokemonCards}>Gotta catch em all</button> */}
     </div>
   )
 }
