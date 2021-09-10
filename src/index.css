@@ -1,5 +1,56 @@
 body {
-
   background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
 }
 
+* {
+  box-sizing: border-box;
+}
+
+main {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background-color: sandybrown;
+}
+
+.poke-dex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: space-between;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.poke-card {
+  background-color: #c93c3c;
+
+  border-radius: 10px;
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+  border: 4px solid gold;
+}
+
+.poke-dex .img-container {
+  border-radius: 50%;
+
+  width: 120px;
+  height: 120px;
+  text-align: center;
+}
+
+.poke-dex .img-container img {
+  max-width: 90%;
+  margin-top: 20px;
+}
+
+button {
+  border-radius: 50%;
+  background-color: red;
+  font-size: 24px;
+}
