@@ -11,7 +11,7 @@ function PokemonCards({ name, src, id }) {
           </div>
           <div className='info'>
             <span>Pokemon #{id}</span>
-            <h3>{name}</h3>
+            <h3 style={{ textTransform: 'capitalize' }}>{name}</h3>
           </div>
         </div>
       </div>
